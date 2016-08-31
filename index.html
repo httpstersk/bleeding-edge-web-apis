@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bleeding Edge Web APIs</title>
+
+    <style>
+        @supports (--variables: yes) {
+            :root {
+                --body-bg-color: #c60333;
+                --alternative-color: #44f7ca;
+                --header-bg-color: black;
+                --footer-bg-color: transparent;
+                --code-bg-color: #1C1823;
+                --code-color: #A3A3A3;
+                --code-highlight: #F4CFBD;
+                --code-static: #E0E6F9;
+                --code-native: #E38B03;
+            }
+            :root.theme-dark {}
+            :root.theme-light {}
+        }
+
+        html {
+            box-sizing: border-box;
+            font-size: 90%;
+            height: 100%;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            background: #ff5d2d;
+            background: var(--body-bg-color);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+            font-size: 16px;
+            font-size: 1.6rem;
+            justify-content: space-between;
+            line-height: 1.8;
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body.roboto-loaded {
+            font-family: 'Roboto';
+        }
+
+        main {
+            flex: 1 0 auto;
+            padding: 10px;
+        }
+
+        section {
+            height: 100%;
+            margin: auto;
+            margin-bottom: 3em;
+            max-width: 1280px;
+            overflow: auto;
+            width: 100%;
+        }
+
+        section.full-width {
+            max-width: none;
+        }
+
+        section.auto-width {
+            width: auto;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        header {
+            background: var(--header-bg-color);
+            min-height: 20vh;
+        }
+
+        footer {
+            background: var(--footer-bg-color);
+            min-height: 20vh;
+        }
+
+        #mode {
+            display: none;
+        }
+
+        nav {
+            color: black;
+        }
+
+        nav ul {
+            font-size: 2rem;
+            list-style-type: circle;
+        }
+
+        nav a {
+            color: black;
+        }
+
+        h2:before {
+            content: "— ";
+        }
+
+        pre {
+            background: transparent;
+            background: var(--code-bg-color);
+            margin: 0;
+            overflow: auto;
+            -moz-tab-size: 2;
+            -o-tab-size: 2;
+            tab-size: 2;
+        }
+
+        pre b {
+            font-weight: normal;
+            color: var(--code-highlight);
+        }
+
+        pre u {
+            text-decoration: none;
+            color: var(--code-native);
+        }
+
+        pre i {
+            text-decoration: none;
+            font-style: normal;
+            color: var(--code-static);
+        }
+
+        code {
+            color: var(--code-color);
+            cursor: text;
+            font-family: monaco, courier, monospace;
+            font-size: 13px;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        figure {
+            display: block;
+            margin: 0;
+        }
+
+        figure figcaption {
+            display: block;
+            padding: 1em;
+            font-family: monaco, courier, monospace;
+            font-size: 1.1rem;
+            background: #1C1C1C;
+            color: #A3A3A3;
+        }
+
+        @supports (--variables: yes) {
+            #mode {
+                display: block;
+            }
+        }
+
+        @media print {
+            pre {
+                overflow-x: visible;
+                white-space: pre-wrap;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <section id="mode" class="full-width" aria-hidden="true">
+
+        </section>
+    </header>
+
+    <section id="navigation">
+        <nav role="navigation">
+            <ul>
+                <li><a href="#css-font-loading">CSS Font Loading API</a></li>
+                <li><a href="#custom-elements">Custom Elements API</a></li>
+                <li><a href="#web-bluetooth">Web Bluetooth API</a></li>
+                <li><a href="#web-usb">Web USB API</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <main>
+
+        <section id="css-font-loading">
+            <h2>CSS Font Loading API</h2>
+
+            <p id="css-font-loading-description">
+                CSS Font Loading API
+            </p>
+
+            <figure>
+                <figcaption id="css-font-loading-caption">
+                    CSSFontLoading.js
+                </figcaption>
+                <pre id="syntax-css-font-loading" aria-labelledby="css-font-loading-caption" aria-describedby="css-font-loading-description">
+                    <code contenteditable="true" tabindex="0" spellcheck="false">
+            <i>const</i> roboto = <i>new</i> <u>FontFace</u>('Roboto', 'url(roboto.woff2)');
+
+            <i>const</i> <u>addLoadedClass</u> = (font) <i>=></i> {
+            document.body.<b>classList</b>.<b>add</b>(`${font.<b>family</b>.<i>toLowerCase()</i>}-loaded`);
+            }
+
+            roboto.<b>load()</b>;
+
+            document.<b>fonts</b>.<b>add</b>(roboto);
+            document.<b>fonts</b>.<b>ready</b>.<i>then</i>(() <i>=></i> console.log(`${document.<b>fonts</b>.<b>size</b>} FontFaces loaded.`));
+
+            roboto.<b>loaded</b>.<i>then</i>(<u>addLoadedClass</u>);
+                    </code>
+                </pre>
+            </figure>
+        </section>
+
+        <!---------------------------------------------------------------------->
+
+        <section id="custom-elements">
+            <h2>Custom Elements API</h2>
+
+            <p id="custom-elements-description">
+                Custom Elements API
+            </p>
+
+            <figure>
+                <figcaption id="custom-elements-caption">
+                    CustomElements.js
+                </figcaption>
+                <pre id="syntax-custom-elements" aria-labelledby="custom-elements-caption" aria-describedby="custom-elements-description">
+                    <code contenteditable="true" tabindex="0" spellcheck="false">
+            <i>class</i> CustomElement <i>extends</i> <u>HTMLElement</u> {
+              <i>constructor</i>() {
+                <u>super</u>();
+                <i>const</i> shadowRoot = this.<b>attachShadow</b>({ mode: 'open' });
+                <i>const</i> t = document.<b>querySelector</b>('template');
+                <i>const</i> instance = t.<b>content</b>.<b>cloneNode</b>(true);
+                shadowRoot.<b>appendChild</b>(instance);
+              }
+
+              <i>static</i> <i>get</i> <u>observedAttributes</u>() {
+                <i>return</i> ['disabled'];
+              }
+
+              <u>connectedCallback</u>() {}
+              <u>disconnectedCallback</u>() {}
+              <u>attributeChangedCallback</u>(attrName, oldVal, newVal) {}
+            }
+
+            customElements.<b>define</b>('custom-element', CustomElement);
+            customElements.<b>whenDefined</b>('custom-element').<i>then</i>(() => {});
+                    </code>
+                </pre>
+            </figure>
+        </section>
+
+        <!---------------------------------------------------------------------->
+
+        <section id="web-bluetooth">
+            <h2>Web Bluetooth API</h2>
+
+            <p id="web-bluetooth-description">
+                Web Bluetooth API
+            </p>
+
+            <figure>
+                <figcaption id="web-bluetooth-caption">
+                    WebBluetooth.js
+                </figcaption>
+                <pre id="syntax-web-bluetooth" aria-labelledby="web-bluetooth-caption" aria-describedby="web-bluetooth-description">
+                    <code contenteditable="true" tabindex="0" spellcheck="false">
+            navigator.<b>bluetooth</b>.<u>requestDevice</u>({ filters: [{ services: ['generic_access'] }] })
+              .<i>then</i>(device => console.log(device.name))
+              .<i>catch</i>(error => console.error(error));
+                    </code>
+                </pre>
+            </figure>
+        </section>
+
+        <!---------------------------------------------------------------------->
+
+        <section id="web-usb">
+            <h2>Web USB API</h2>
+
+            <p id="web-usb-description">
+                Web USB API
+            </p>
+
+            <figure>
+                <figcaption id="web-usb-caption">
+                    WebUSB.js
+                </figcaption>
+                <pre id="syntax-web-usb" aria-labelledby="web-usb-caption" aria-describedby="web-usb-description">
+                    <code contenteditable="true" tabindex="0" spellcheck="false">
+            navigator.<b>usb</b>.<u>requestDevice</u>({ filters: [{ vendorId: 0x2341 }] })
+              .<i>then</i>(device => console.log(device.productName))
+              .<i>catch</i>(error => console.error(error));
+
+            navigator.<b>usb</b>.<u>getDevices</u>().<i>then</i>(devices => {
+              devices.<i>map</i>(device => console.log(device.manufacturerName));
+            });
+                    </code>
+                </pre>
+            </figure>
+        </section>
+
+    </main>
+
+    <footer>
+        <section class="full-width">
+
+        </section>
+    </footer>
+
+</body>
+
+</html>
