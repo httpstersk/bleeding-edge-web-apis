@@ -9,8 +9,8 @@
     <style>
         @supports (--variables: yes) {
             :root {
-                --body-bg-color: #c60333;
-                --alternative-color: #44f7ca;
+                --body-bg-color: #C60333;
+                --alternative-color: #44F7CA;
                 --header-bg-color: black;
                 --footer-bg-color: transparent;
                 --code-bg-color: #1C1823;
@@ -36,7 +36,7 @@
         }
 
         body {
-            background: #ff5d2d;
+            background: #C60333;
             background: var(--body-bg-color);
             color: white;
             display: flex;
@@ -60,7 +60,6 @@
         }
 
         section {
-            height: 100%;
             margin: auto;
             margin-bottom: 3em;
             max-width: 1280px;
@@ -81,11 +80,13 @@
         }
 
         header {
+            background: black;
             background: var(--header-bg-color);
             min-height: 20vh;
         }
 
         footer {
+            background: transparent;
             background: var(--footer-bg-color);
             min-height: 20vh;
         }
@@ -112,7 +113,7 @@
         }
 
         pre {
-            background: transparent;
+            background: #1C1823;
             background: var(--code-bg-color);
             margin: 0;
             overflow: auto;
@@ -123,26 +124,30 @@
 
         pre b {
             font-weight: normal;
+            color: #F4CFBD;
             color: var(--code-highlight);
         }
 
         pre u {
             text-decoration: none;
+            color: #E38B03;
             color: var(--code-native);
         }
 
         pre i {
             text-decoration: none;
             font-style: normal;
+            color: #E38B03;
             color: var(--code-static);
         }
 
         code {
+            color: #A3A3A3;
             color: var(--code-color);
             cursor: text;
+            display: block;
             font-family: monaco, courier, monospace;
-            font-size: 13px;
-            font-size: 1rem;
+            font-size: 17px;
             line-height: 1.8;
             margin: 0;
         }
@@ -228,8 +233,6 @@
             </figure>
         </section>
 
-        <!---------------------------------------------------------------------->
-
         <section id="custom-elements">
             <h2>Custom Elements API</h2>
 
@@ -268,8 +271,6 @@
             </figure>
         </section>
 
-        <!---------------------------------------------------------------------->
-
         <section id="web-bluetooth">
             <h2>Web Bluetooth API</h2>
 
@@ -290,8 +291,6 @@
                 </pre>
             </figure>
         </section>
-
-        <!---------------------------------------------------------------------->
 
         <section id="web-usb">
             <h2>Web USB API</h2>
