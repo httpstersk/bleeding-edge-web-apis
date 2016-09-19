@@ -284,8 +284,12 @@
                 </figcaption>
                 <pre id="syntax-web-bluetooth" aria-labelledby="web-bluetooth-caption" aria-describedby="web-bluetooth-description">
                     <code contenteditable="true" tabindex="0" spellcheck="false">
-            navigator.<b>bluetooth</b>.<u>requestDevice</u>({ filters: [{ services: ['generic_access'] }] })
-              .<i>then</i>(device => console.log(device.name))
+            navigator.<b>bluetooth</b>.<u>requestDevice</u>({ filters: [{ services: ['battery_service'] }] })
+              .<i>then</i>(device => device.gatt.connect())
+              .<i>then</i>(server => server.getPrimaryService('battery_service'))
+              .<i>then</i>(service => service.getCharacteristics())
+              .<i>then</i>(characteristic => characteristic.readValue())
+              .<i>then</i>(value => console.log(`Battery level is ${value}%`))
               .<i>catch</i>(error => console.error(error));
                     </code>
                 </pre>
@@ -306,7 +310,7 @@
                 <pre id="syntax-web-usb" aria-labelledby="web-usb-caption" aria-describedby="web-usb-description">
                     <code contenteditable="true" tabindex="0" spellcheck="false">
             navigator.<b>usb</b>.<u>requestDevice</u>({ filters: [{ vendorId: 0x2341 }] })
-              .<i>then</i>(device => console.log(device.productName))
+              .<i>then</i>(device => device.log(device.productName))
               .<i>catch</i>(error => console.error(error));
 
             navigator.<b>usb</b>.<u>getDevices</u>().<i>then</i>(devices => {
