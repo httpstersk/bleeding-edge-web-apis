@@ -11,7 +11,7 @@
             :root {
                 --body-bg-color: #C60333;
                 --alternative-color: #44F7CA;
-                --header-bg-color: black;
+                --header-bg-color: transparent;
                 --footer-bg-color: transparent;
                 --code-bg-color: #1C1823;
                 --code-color: #A3A3A3;
@@ -50,10 +50,6 @@
             min-height: 100%;
         }
 
-        body.roboto-loaded {
-            font-family: 'Roboto';
-        }
-
         main {
             flex: 1 0 auto;
             padding: 10px;
@@ -80,19 +76,16 @@
         }
 
         header {
-            background: black;
+            background: transparent;
             background: var(--header-bg-color);
             min-height: 20vh;
+            margin: auto;
         }
 
         footer {
             background: transparent;
             background: var(--footer-bg-color);
             min-height: 20vh;
-        }
-
-        #mode {
-            display: none;
         }
 
         nav {
@@ -108,6 +101,12 @@
             color: black;
         }
 
+        h1 {
+            color: #C60333;
+            color: var(--body-bg-color);
+            font-size: 4rem;
+        }
+
         h2 {
             display: flex;
             flex-direction: row;
@@ -116,20 +115,12 @@
             text-transform: uppercase;
         }
 
+        h2::after,
         h2::before {
-            background: white;
+            background: var(--code-bg-color);
             content: '';
-            height: 1px;
+            height: 5px;
             flex: 1;
-            margin-right: 4vh;
-        }
-
-        h2::after {
-            background: white;
-            content: '';
-            height: 1px;
-            flex: 1;
-            margin-left: 4vh;
         }
 
         pre {
@@ -140,6 +131,12 @@
             -moz-tab-size: 2;
             -o-tab-size: 2;
             tab-size: 2;
+            padding: 1em;
+        }
+
+        h2 > pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
 
         pre b {
@@ -187,9 +184,7 @@
         }
 
         @supports (--variables: yes) {
-            #mode {
-                display: block;
-            }
+
         }
 
         @media print {
@@ -206,7 +201,7 @@
 
     <header>
         <section id="mode" class="full-width" aria-hidden="true">
-
+            <h1><pre>bleeding-edge /></pre></h1>
         </section>
     </header>
 
@@ -224,7 +219,7 @@
     <main>
 
         <section id="css-font-loading">
-            <h2>CSS Font Loading API</h2>
+            <h2><pre>CSS Font Loading API</pre></h2>
 
             <p id="css-font-loading-description">
                 The CSS Font Loading API provides events and interfaces for dynamically loading font resources.
@@ -254,7 +249,7 @@
         </section>
 
         <section id="custom-elements">
-            <h2>Custom Elements API</h2>
+            <h2><pre>Custom Elements API</pre></h2>
 
             <p id="custom-elements-description">
                 Custom Elements is a capability for creating your own custom HTML tags and elements. They can have their own scripted behavior and CSS styling. They are part of Web Components but they can also be used by themselves.
@@ -292,7 +287,7 @@
         </section>
 
         <section id="web-bluetooth">
-            <h2>Web Bluetooth API</h2>
+            <h2><pre>Web Bluetooth API</pre></h2>
 
             <p id="web-bluetooth-description">
                 The Web Bluetooth API is an interface to discover and communicate with devices over the Bluetooth 4 wireless standard using the Generic Attribute Profile (GATT).
@@ -317,7 +312,7 @@
         </section>
 
         <section id="web-usb">
-            <h2>Web USB API</h2>
+            <h2><pre>Web USB API</pre></h2>
 
             <p id="web-usb-description">
                 The Web USB API is an interface for securely providing access to Universal Serial Bus devices from web pages.
