@@ -108,8 +108,28 @@
             color: black;
         }
 
-        h2:before {
-            content: "— ";
+        h2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+        }
+
+        h2::before {
+            background: white;
+            content: '';
+            height: 1px;
+            flex: 1;
+            margin-right: 4vh;
+        }
+
+        h2::after {
+            background: white;
+            content: '';
+            height: 1px;
+            flex: 1;
+            margin-left: 4vh;
         }
 
         pre {
