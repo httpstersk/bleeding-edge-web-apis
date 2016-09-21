@@ -220,6 +220,24 @@
             padding: 1em;
         }
 
+        .browsers {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .browser {
+            align-items: center;
+            background: white;
+            box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            min-height: 300px;
+            width: 25%;
+        }
+
         @media print {
             pre {
                 overflow-x: visible;
@@ -251,6 +269,25 @@
 
     <main>
 
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none">
+      		  <symbol id="canary" viewBox="0 0 500 500">
+        				<title>Chrome Canary</title>
+                <path fill="#EABF18" d="M500 250c0 135.2-107.3 245.3-241.4 249.8-2.9.1-5.7.2-8.6.2s-5.8 0-8.6-.2l8.6-14.9 100.8-174.7c.6-1 1.3-2.1 1.9-3.2 9.4-16.9 14.8-36.3 14.8-57 0-64.9-52.6-117.5-117.5-117.5h220.8c18.6 35.1 29.2 75 29.2 117.5z"/><circle fill="#EABA00" cx="250" cy="250" r="95"/><path fill="#CE9200" d="M470.8 132.5H250c-64.9 0-117.5 52.6-117.5 117.5 0 20.7 5.4 40.1 14.8 57L46.6 132.5l-8.7-15C82.1 47 160.6 0 250 0s167.9 47 212.1 117.6c3 4.9 5.9 9.8 8.7 14.9z"/><path fill="#DFA600" d="M350.8 310.2L250 484.9l-8.6 14.9C107.3 495.3 0 385.2 0 250c0-42.5 10.6-82.4 29.3-117.5 2.7-5.1 5.6-10.1 8.7-15l8.7 15L147.3 307l1.9 3.2c20.5 34.3 58 57.2 100.8 57.2s80.3-22.9 100.8-57.2z"/>
+      		  </symbol>
+      		  <symbol id="firefox" viewBox="0 0 500 500">
+        				<title>Firefox</title>
+                <circle fill="#27AAE1" cx="250" cy="250" r="250"/><circle fill="white" cx="269.8" cy="279.67" r="20.25"/><path fill="white" d="M231 170.06l-17.53 10.12-34.16 19.72-41.37 23.89v-53.73z"/><path fill="#231F20" d="M231 170.05l-18.12 10.46v-20.9c.48.27.95.54 1.44.82.47.28.95.55 1.42.82l15.26 8.8z"/><path fill="#F26522" d="M495.58 203c-10.59-55.64-40.77-108.19-84.62-144.3 14.18 19.89 22.89 44.79 21.72 69.38-8.79-5.51-17.91-10.48-27.31-14.86-31.97-14.87-67.09-22.78-102.34-23.2 17.54 6.32 34 15.63 48.47 27.4 23.91 19.47 42.33 45.59 52.39 74.76 11.03 31.96 12.06 67.25 2.85 99.79.79-12.36-.24-24.85-3.15-36.9-8.33-34.53-32.12-64.66-63.75-80.81 13.25 15.68 22.29 34.87 25.85 55.09 6.13 34.78-4.06 71.64-27.43 98.15-22.2 25.19-55.03 39.95-88.59 39.96 24.71-22.48 40.15-54.19 40.39-87.79h-40.51v1.39c-.01.05-.01.09-.01.14-.15 6.5-1.75 13.08-4.28 19.05-4.78 11.24-13.34 20.81-24.06 26.69-20.61 11.3-47.27 8.14-64.36-8.09-16.09-15.29-21.74-39.89-13.4-60.53 8.2-20.29 29.39-35.82 51.67-34.59-13.09-15.25-22.12-33.94-25.95-53.67h43.72v-10.4l-42.51-24.39c-.02-.01-.04-.03-.07-.04-.49-.29-.96-.59-1.39-.92-1.1-.81-1.04-1.24-.9-2.5 1.08-9.45 3.73-18.88 7.23-27.71 6.4-16.1 16.41-30.73 29.09-42.54-14.61 1-29.01 4.79-42.23 11.08-10.18 4.85-20.79 11.24-28.66 19.42-1.22 1.27-2.64 3.35-4.3 4.07-1.9.82-3.54-.89-5.25-1.69-5.56-2.58-11.83-3.96-17.92-4.41-6.51-.48-13.08.2-19.34 2-3.4.98-6.49 2.45-9.71 3.84-2.46 1.06-3.25-.8-4.79-2.72-7.77-9.7-12.09-22.04-12.03-34.47-5.58 5.52-10.54 11.67-14.75 18.29-8.96 14.11-14.4 30.38-15.75 47.04-.31 3.9.19 7.54-1.61 11.13-1.48 2.96-3.05 5.84-4.46 8.84-3.31 7.07-6.28 14.29-8.92 21.63C4 195.11-.86 226.59.14 257.92c1.95 61.87 27.24 121.51 70.28 166 45.45 46.99 108.86 74.65 174.2 76.02 66.65 1.4 132.24-24.35 179.94-70.98C472.54 382.06 500 316.97 500 249.87c0-15.71-1.48-31.44-4.42-46.87z"/>
+      		  </symbol>
+      		  <symbol id="safari" viewBox="0 0 500 500">
+        				<title>Safari</title>
+                <circle fill="#E6E7E8" cx="250" cy="250" r="250"/><circle fill="#9B40DC" cx="250" cy="250" r="227.7"/><symbol id="a"><path fill="#E6E7E8" d="M250 88c-2.8 0-5-2.2-5-5V43c0-2.8 2.2-5 5-5s5 2.2 5 5v40c0 2.8-2.2 5-5 5z"/></symbol><use xlink:href="#a"/><g id="b"><use transform="rotate(45 250 250)" xlink:href="#a"/><use transform="rotate(90 250 250)" xlink:href="#a"/><use transform="rotate(135 250 250)" xlink:href="#a"/><use transform="rotate(180 250 250)" xlink:href="#a"/><use transform="rotate(225 250 250)" xlink:href="#a"/><use transform="rotate(270 250 250)" xlink:href="#a"/><use transform="rotate(315 250 250)" xlink:href="#a"/><use transform="rotate(360 250 250)" xlink:href="#a"/></g><use transform="rotate(15 250 250)" xlink:href="#b"/><use transform="rotate(30 250 250)" xlink:href="#b"/><path fill="#E6E7E8" d="M250 250l-22.2-22.2-124.2 168.6 168.6-124.2"/><path fill="#ED1C24" d="M250 250l22.2 22.2 124.2-168.6-168.6 124.2"/>
+      		  </symbol>
+      		  <symbol id="edge" viewBox="0 0 500 500">
+        				<title>Edge</title>
+                <path fill="#1C75BC" d="M250 0C111.9 0 0 111.9 0 250v.5c58.7-71.1 147.1-116.8 246.2-117.9 1.3-.1 2.5-.1 3.8-.1s2.6 0 3.8.1c22.6.7 43.5 7.8 61.1 19.5 22.8 15.2 40 38.1 47.9 65.1H137.2c7.8-26.9 25.1-49.9 47.9-65.1C117.7 178.1 70 243.5 70 320c0 98.5 79.2 178.6 177.4 180h7.2c111.1-2 204.4-76.4 234.9-178.1H342.9c-21.5 27.7-55.1 45.6-92.9 45.6-52 0-96.1-33.8-111.6-80.5h358.8c1.8-11.9 2.7-24.1 2.7-36.5v-.5C500 111.9 388.1 0 250 0z"/>
+      		  </symbol>
+    		</svg>
+
         <section id="css-font-loading">
             <h2>CSS Font Loading API</h2>
 
@@ -279,6 +316,29 @@
                     </code>
                 </pre>
             </figure>
+
+            <div class="browsers">
+                <div class="browser">
+                    <svg class="canary" width="200" aria-hidden="true">
+              				  <use xlink:href="#canary" />
+              			<svg>
+                </div>
+                <div class="browser">
+                    <svg class="firefox" width="200" aria-hidden="true">
+              				  <use xlink:href="#firefox" />
+              			<svg>
+                </div>
+                <div class="browser">
+                    <svg class="safari" width="200" aria-hidden="true">
+              				  <use xlink:href="#safari" />
+              			<svg>
+                </div>
+                <div class="browser">
+                    <svg class="edge" width="200" aria-hidden="true">
+              				  <use xlink:href="#edge" />
+              			<svg>
+                </div>
+            </div>
         </section>
 
         <section id="custom-elements">
@@ -317,6 +377,29 @@
                     </code>
                 </pre>
             </figure>
+
+            <div class="browsers">
+                <div class="browser">
+                    <svg class="canary" width="200" aria-hidden="true">
+              				  <use xlink:href="#canary" />
+              			<svg>
+                </div>
+                <div class="browser">
+                    <svg class="firefox" width="200" aria-hidden="true">
+              				  <use xlink:href="#firefox" />
+              			<svg>
+                </div>
+                <div class="browser">
+                    <svg class="safari" width="200" aria-hidden="true">
+              				  <use xlink:href="#safari" />
+              			<svg>
+                </div>
+                <div class="browser">
+                    <svg class="edge" width="200" aria-hidden="true">
+              				  <use xlink:href="#edge" />
+              			<svg>
+                </div>
+            </div>
         </section>
 
         <section id="web-bluetooth">
@@ -342,6 +425,29 @@
                     </code>
                 </pre>
             </figure>
+
+            <div class="browsers">
+                <div class="browser">
+                    <svg class="canary" width="200" aria-hidden="true">
+              				  <use xlink:href="#canary" />
+              			<svg>
+                </div>
+                <div class="browser">
+                    <svg class="firefox" width="200" aria-hidden="true">
+              				  <use xlink:href="#firefox" />
+              			<svg>
+                </div>
+                <div class="browser">
+                    <svg class="safari" width="200" aria-hidden="true">
+              				  <use xlink:href="#safari" />
+              			<svg>
+                </div>
+                <div class="browser">
+                    <svg class="edge" width="200" aria-hidden="true">
+              				  <use xlink:href="#edge" />
+              			<svg>
+                </div>
+            </div>
         </section>
 
         <section id="web-usb">
@@ -367,6 +473,29 @@
                     </code>
                 </pre>
             </figure>
+
+            <div class="browsers">
+                <div class="browser">
+                    <svg class="canary" width="200" aria-hidden="true">
+              				  <use xlink:href="#canary" />
+              			<svg>
+                </div>
+                <div class="browser">
+                    <svg class="firefox" width="200" aria-hidden="true">
+              				  <use xlink:href="#firefox" />
+              			<svg>
+                </div>
+                <div class="browser">
+                    <svg class="safari" width="200" aria-hidden="true">
+              				  <use xlink:href="#safari" />
+              			<svg>
+                </div>
+                <div class="browser">
+                    <svg class="edge" width="200" aria-hidden="true">
+              				  <use xlink:href="#edge" />
+              			<svg>
+                </div>
+            </div>
         </section>
 
     </main>
