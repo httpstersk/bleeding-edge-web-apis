@@ -238,6 +238,12 @@
             width: 25%;
         }
 
+        .browser.unsupported {
+            filter: grayscale(100%);
+            filter: url(#grayscale);
+            opacity: 0.9;
+        }
+
         @media print {
             pre {
                 overflow-x: visible;
@@ -286,6 +292,11 @@
         				<title>Edge</title>
                 <path fill="#1C75BC" d="M250 0C111.9 0 0 111.9 0 250v.5c58.7-71.1 147.1-116.8 246.2-117.9 1.3-.1 2.5-.1 3.8-.1s2.6 0 3.8.1c22.6.7 43.5 7.8 61.1 19.5 22.8 15.2 40 38.1 47.9 65.1H137.2c7.8-26.9 25.1-49.9 47.9-65.1C117.7 178.1 70 243.5 70 320c0 98.5 79.2 178.6 177.4 180h7.2c111.1-2 204.4-76.4 234.9-178.1H342.9c-21.5 27.7-55.1 45.6-92.9 45.6-52 0-96.1-33.8-111.6-80.5h358.8c1.8-11.9 2.7-24.1 2.7-36.5v-.5C500 111.9 388.1 0 250 0z"/>
       		  </symbol>
+            <defs>
+                <filter id="grayscale">
+              	    <feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0" />
+              	</filter>
+            </defs>
     		</svg>
 
         <section id="css-font-loading">
