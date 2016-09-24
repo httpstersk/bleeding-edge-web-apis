@@ -524,8 +524,8 @@
                 deselect();
             }
 
-            function log(text) {
-                return console.log(text);
+            function changeTextNode(node, text) {
+                node.textContent = text;
             }
 
             function deselect() {
@@ -544,7 +544,7 @@
 
             function addListenerToButton(node) {
                 node.addEventListener('click', function() {
-                    copyToClipboard(node, log('Copied!'))
+                    copyToClipboard(node, changeTextNode(node, 'Copied!'));
                 });
             }
 
