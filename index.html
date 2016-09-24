@@ -520,7 +520,7 @@
             'use strict';
 
             function copyToClipboard(element, callback) {
-                var node = document.getElementById(element);
+                var node = document.querySelector(element);
                 var range = document.createRange();
 
                 range.selectNode(node);
@@ -537,15 +537,29 @@
                 if (succeeded && typeof(callback) === 'function') {
                     callback();
                 }
+
+                deselect();
             }
 
             function log(text) {
                 return console.log(text);
             }
 
+            function deselect() {
+                if (window.getSelection) {
+                    var selection = window.getSelection();
+
+                    if (selection.removeAllRanges) {
+                        selection.removeAllRanges();
+                    } else {
+                        selection.empty();
+                    }
+                }
+            }
+
             if (document.queryCommandSupported('copy'))  {
                 document.querySelector('.copy').addEventListener('click', function(event) {
-                    copyToClipboard('syntax-css-font-loading', log('Copied!'));
+                    copyToClipboard('#syntax-css-font-loading', log('Copied!'));
                 });
             }
         })();
