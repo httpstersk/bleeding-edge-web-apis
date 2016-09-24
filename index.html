@@ -509,23 +509,28 @@
                 var parent = el.parentNode.parentNode;
                 var code = parent.querySelector('code');
                 var range = document.createRange();
-
                 range.selectNode(code);
+
+                clearSelection();
                 window.getSelection().addRange(range);
 
-                var succeeded;
+                var successful;
 
                 try {
-                    succeeded = document.execCommand('copy');
-                } catch (ev) {
-                    succeeded = false;
+                    successful = document.execCommand('copy');
+                } catch(err) {
+                    successful = false;
                 }
 
-                if (succeeded && typeof(cb) === 'function') {
+                if (successful && typeof(cb) === 'function') {
                     cb();
                 }
 
-                window.getSelection().removeAllRanges();
+                clearSelection();
+            }
+
+            function clearSelection() {
+                return window.getSelection().removeAllRanges();
             }
 
             function removeHiddenAttr(el) {
