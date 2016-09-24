@@ -27,13 +27,17 @@
             background: #C60333;
             display: flex;
             flex-direction: column;
-            font-family: "Space Mono", "Inconsolata", Menlo, Consolas, Courier New, Courier, Mono, monospace;
             font-size: 16px;
             font-size: 1.6rem;
             justify-content: space-between;
             line-height: 1.8;
             margin: 0;
             min-height: 100%;
+        }
+
+        body,
+        button {
+            font-family: "Space Mono", "Inconsolata", Menlo, Consolas, Courier New, Courier, Mono, monospace;
         }
 
         main {
@@ -152,6 +156,36 @@
             margin-left: 4vh;
         }
 
+        button {
+            background: tomato;
+            border: none;
+            border-radius: 2rem;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin: 0 1rem;
+            overflow: hidden;
+            padding: 1rem;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        button:hover:before {
+            left: 150%;
+            transition: left 350ms;
+        }
+
+        button:before {
+            content: '';
+            background: rgba(255, 255, 255, .3);
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: -150%;
+            transform: skew(-45deg);
+        }
+
         pre {
             background: #1C1823;
             margin: 0;
@@ -194,12 +228,15 @@
         }
 
         figure figcaption {
+            align-items: center;
             background: #1C1C1C;
             color: #A3A3A3;
-            display: block;
+            display: flex;
             font-family: monaco, courier, monospace;
             font-size: 1.1rem;
+            justify-content: flex-end;
             padding: 1em;
+            position: relative;
         }
 
         .browsers {
@@ -286,7 +323,7 @@
                 <figcaption id="css-font-loading-caption">
                     CSSFontLoading.js
                     <button class="copy" hidden aria-hidden="true">Copy</button>
-                    <span class="copied" hidden aria-hidden="true">Copied!</span>
+                    <span class="copied" hidden aria-hidden="true">✓</span>
                 </figcaption>
                 <pre aria-labelledby="css-font-loading-caption" aria-describedby="css-font-loading-description">
                     <code id="syntax-css-font-loading" contenteditable="true" tabindex="0" spellcheck="false">
@@ -341,7 +378,7 @@
                 <figcaption id="custom-elements-caption">
                     CustomElements.js
                     <button class="copy" hidden aria-hidden="true">Copy</button>
-                    <span class="copied" hidden aria-hidden="true">Copied!</span>
+                    <span class="copied" hidden aria-hidden="true">✓</span>
                 </figcaption>
                 <pre id="syntax-custom-elements" aria-labelledby="custom-elements-caption" aria-describedby="custom-elements-description">
                     <code contenteditable="true" tabindex="0" spellcheck="false">
@@ -404,7 +441,7 @@
                 <figcaption id="web-bluetooth-caption">
                     WebBluetooth.js
                     <button class="copy" hidden aria-hidden="true">Copy</button>
-                    <span class="copied" hidden aria-hidden="true">Copied!</span>
+                    <span class="copied" hidden aria-hidden="true">✓</span>
                 </figcaption>
                 <pre id="syntax-web-bluetooth" aria-labelledby="web-bluetooth-caption" aria-describedby="web-bluetooth-description">
                     <code contenteditable="true" tabindex="0" spellcheck="false">
@@ -454,7 +491,7 @@
                 <figcaption id="web-usb-caption">
                     WebUSB.js
                     <button class="copy" hidden aria-hidden="true">Copy</button>
-                    <span class="copied" hidden aria-hidden="true">Copied!</span>
+                    <span class="copied" hidden aria-hidden="true">✓</span>
                 </figcaption>
                 <pre id="syntax-web-usb" aria-labelledby="web-usb-caption" aria-describedby="web-usb-description">
                     <code contenteditable="true" tabindex="0" spellcheck="false">
