@@ -285,7 +285,7 @@
             <figure>
                 <figcaption id="css-font-loading-caption">
                     CSSFontLoading.js
-                    <button type="button" id="copy-css-font-loading">Copy</button>
+                    <button class="copy" hidden aria-hidden="true" id="copy-css-font-loading">Copy</button>
                 </figcaption>
                 <pre aria-labelledby="css-font-loading-caption" aria-describedby="css-font-loading-description">
                     <code id="syntax-css-font-loading" contenteditable="true" tabindex="0" spellcheck="false">
@@ -339,7 +339,7 @@
             <figure>
                 <figcaption id="custom-elements-caption">
                     CustomElements.js
-                    <button type="button" id="copy-custom-elements">Copy</button>
+                    <button class="copy" hidden aria-hidden="true" id="copy-custom-elements">Copy</button>
                 </figcaption>
                 <pre id="syntax-custom-elements" aria-labelledby="custom-elements-caption" aria-describedby="custom-elements-description">
                     <code contenteditable="true" tabindex="0" spellcheck="false">
@@ -401,7 +401,7 @@
             <figure>
                 <figcaption id="web-bluetooth-caption">
                     WebBluetooth.js
-                    <button type="button" id="copy-web-bluetooth">Copy</button>
+                    <button class="copy" hidden aria-hidden="true" id="copy-web-bluetooth">Copy</button>
                 </figcaption>
                 <pre id="syntax-web-bluetooth" aria-labelledby="web-bluetooth-caption" aria-describedby="web-bluetooth-description">
                     <code contenteditable="true" tabindex="0" spellcheck="false">
@@ -450,7 +450,7 @@
             <figure>
                 <figcaption id="web-usb-caption">
                     WebUSB.js
-                    <button type="button" id="copy-web-usb">Copy</button>
+                    <button class="copy" hidden aria-hidden="true" id="copy-web-usb">Copy</button>
                 </figcaption>
                 <pre id="syntax-web-usb" aria-labelledby="web-usb-caption" aria-describedby="web-usb-description">
                     <code contenteditable="true" tabindex="0" spellcheck="false">
@@ -502,13 +502,13 @@
             'use strict';
 
             function copyToClipboard(element, callback) {
-                var node = document.querySelector(element);
-                var range = document.createRange();
+                let node = document.querySelector(element);
+                let range = document.createRange();
 
                 range.selectNode(node);
                 window.getSelection().addRange(range);
 
-                var succeeded;
+                let succeeded;
 
                 try {
                     succeeded = document.execCommand('copy');
@@ -529,23 +529,28 @@
 
             function deselect() {
                 if (window.getSelection) {
-                    var selection = window.getSelection();
+                    let selection = window.getSelection();
+                    (selection.removeAllRanges) ? selection.removeAllRanges() : selection.empty()
+                }
+            }
 
-                    if (selection.removeAllRanges) {
-                        selection.removeAllRanges();
-                    } else {
-                        selection.empty();
-                    }
+            function removeHiddenAttr(element) {
+                if (element && element.hasAttribute('hidden')) {
+                    element.removeAttribute('hidden');
+                    element.setAttribute('aria-hidden', 'false')
                 }
             }
 
             function clickAndCopyCode(button, element) {
-                document.querySelector(button).addEventListener('click', function() {
-                    copyToClipboard(element, log('Copied!'))
-                });
+                document.querySelector(button).addEventListener('click', () => copyToClipboard(element, log('Copied!')));
             }
 
             if (document.queryCommandSupported('copy'))  {
+                let buttons = document.querySelectorAll('.copy');
+                if (buttons) {
+                    Array.from(buttons).map(button => removeHiddenAttr(button));
+                }
+
                 clickAndCopyCode('#copy-css-font-loading', '#syntax-css-font-loading');
                 clickAndCopyCode('#copy-custom-elements', '#syntax-custom-elements');
                 clickAndCopyCode('#copy-web-bluetooth', '#syntax-web-bluetooth');
