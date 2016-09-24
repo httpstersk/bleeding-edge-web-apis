@@ -528,29 +528,29 @@
                 window.getSelection().removeAllRanges();
             }
 
-            function removeHidden(el) {
+            function removeHiddenAttr(el) {
                 if (el && el.hasAttribute('hidden')) {
                     el.removeAttribute('hidden');
                     el.setAttribute('aria-hidden', 'false')
                 }
             }
 
-            function removeHiddenOnSibling(el) {
-                return removeHidden(el.nextElementSibling);
+            function showSuccessText(el) {
+                return removeHiddenAttr(el.nextElementSibling);
             }
 
             function addListenerToButton(el) {
                 el.addEventListener('click', function() {
-                    copyToClipboard(el, removeHiddenOnSibling(el));
+                    copyToClipboard(el, showSuccessText(el));
                 });
             }
 
             if (document.queryCommandSupported('copy'))  {
-                var buttons = document.querySelectorAll('.copy');
+                var buttons = document.querySelectorAll('button');
 
                 if (buttons) {
                     Array.from(buttons).map(function(b) {
-                        removeHidden(b);
+                        removeHiddenAttr(b);
                         addListenerToButton(b)
                     });
                 }
