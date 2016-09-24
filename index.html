@@ -285,7 +285,7 @@
             <figure>
                 <figcaption id="css-font-loading-caption">
                     CSSFontLoading.js
-                    <button type="button" class="copy">Copy</button>
+                    <button type="button" id="copy-css-font-loading">Copy</button>
                 </figcaption>
                 <pre aria-labelledby="css-font-loading-caption" aria-describedby="css-font-loading-description">
                     <code id="syntax-css-font-loading" contenteditable="true" tabindex="0" spellcheck="false">
@@ -339,7 +339,7 @@
             <figure>
                 <figcaption id="custom-elements-caption">
                     CustomElements.js
-                    <button type="button" class="copy">Copy</button>
+                    <button type="button" id="copy-custom-elements">Copy</button>
                 </figcaption>
                 <pre id="syntax-custom-elements" aria-labelledby="custom-elements-caption" aria-describedby="custom-elements-description">
                     <code contenteditable="true" tabindex="0" spellcheck="false">
@@ -401,7 +401,7 @@
             <figure>
                 <figcaption id="web-bluetooth-caption">
                     WebBluetooth.js
-                    <button type="button" class="copy">Copy</button>
+                    <button type="button" id="copy-web-bluetooth">Copy</button>
                 </figcaption>
                 <pre id="syntax-web-bluetooth" aria-labelledby="web-bluetooth-caption" aria-describedby="web-bluetooth-description">
                     <code contenteditable="true" tabindex="0" spellcheck="false">
@@ -450,7 +450,7 @@
             <figure>
                 <figcaption id="web-usb-caption">
                     WebUSB.js
-                    <button type="button" class="copy">Copy</button>
+                    <button type="button" id="copy-web-usb">Copy</button>
                 </figcaption>
                 <pre id="syntax-web-usb" aria-labelledby="web-usb-caption" aria-describedby="web-usb-description">
                     <code contenteditable="true" tabindex="0" spellcheck="false">
@@ -539,10 +539,17 @@
                 }
             }
 
-            if (document.queryCommandSupported('copy'))  {
-                document.querySelector('.copy').addEventListener('click', function(event) {
-                    copyToClipboard('#syntax-css-font-loading', log('Copied!'));
+            function clickAndCopyCode(button, element) {
+                document.querySelector(button).addEventListener('click', function() {
+                    copyToClipboard(element, log('Copied!'))
                 });
+            }
+
+            if (document.queryCommandSupported('copy'))  {
+                clickAndCopyCode('#copy-css-font-loading', '#syntax-css-font-loading');
+                clickAndCopyCode('#copy-custom-elements', '#syntax-custom-elements');
+                clickAndCopyCode('#copy-web-bluetooth', '#syntax-web-bluetooth');
+                clickAndCopyCode('#copy-web-usb', '#syntax-web-usb');
             }
         })();
     </script>
