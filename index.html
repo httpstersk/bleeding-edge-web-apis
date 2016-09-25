@@ -252,14 +252,22 @@
             box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: row;
+            height: 15vw;
+            min-height: 100px;
+            max-height: 300px;
             justify-content: center;
-            min-height: 300px;
+            position: relative;
             width: 25%;
         }
 
         .browser.unsupported {
             filter: grayscale(100%);
             opacity: 0.9;
+        }
+
+        .browser > svg {
+            height: 50%;
+            width: 50%;
         }
 
         @media print {
@@ -345,22 +353,22 @@
 
             <div class="browsers">
                 <div class="browser">
-                    <svg class="canary" width="200">
+                    <svg class="canary">
               				  <use xlink:href="#canary" />
               			<svg>
                 </div>
                 <div class="browser">
-                    <svg class="firefox" width="200">
+                    <svg class="firefox">
               				  <use xlink:href="#firefox" />
               			<svg>
                 </div>
                 <div class="browser">
-                    <svg class="safari" width="200">
+                    <svg class="safari">
               				  <use xlink:href="#safari" />
               			<svg>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="edge" width="200">
+                    <svg class="edge">
               				  <use xlink:href="#edge" />
               			<svg>
                 </div>
@@ -408,22 +416,22 @@
 
             <div class="browsers">
                 <div class="browser">
-                    <svg class="canary" width="200">
+                    <svg class="canary">
               				  <use xlink:href="#canary" />
               			<svg>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="firefox" width="200">
+                    <svg class="firefox">
               				  <use xlink:href="#firefox" />
               			<svg>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="safari" width="200">
+                    <svg class="safari">
               				  <use xlink:href="#safari" />
               			<svg>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="edge" width="200">
+                    <svg class="edge">
               				  <use xlink:href="#edge" />
               			<svg>
                 </div>
@@ -458,22 +466,22 @@
 
             <div class="browsers">
                 <div class="browser">
-                    <svg class="canary" width="200">
+                    <svg class="canary">
               				  <use xlink:href="#canary" />
               			<svg>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="firefox" width="200">
+                    <svg class="firefox">
               				  <use xlink:href="#firefox" />
               			<svg>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="safari" width="200">
+                    <svg class="safari">
               				  <use xlink:href="#safari" />
               			<svg>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="edge" width="200">
+                    <svg class="edge">
               				  <use xlink:href="#edge" />
               			<svg>
                 </div>
@@ -508,22 +516,22 @@
 
             <div class="browsers">
                 <div class="browser">
-                    <svg class="canary" width="200">
+                    <svg class="canary">
               				  <use xlink:href="#canary" />
               			<svg>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="firefox" width="200">
+                    <svg class="firefox">
               				  <use xlink:href="#firefox" />
               			<svg>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="safari" width="200">
+                    <svg class="safari">
               				  <use xlink:href="#safari" />
               			<svg>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="edge" width="200">
+                    <svg class="edge">
               				  <use xlink:href="#edge" />
               			<svg>
                 </div>
