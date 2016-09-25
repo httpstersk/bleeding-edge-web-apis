@@ -272,6 +272,19 @@
             width: 25%;
         }
 
+        .browser:hover {
+            background: #D1D2D3;
+        }
+
+        .browser,
+        .browser svg {
+            transition: all 0.4s;
+        }
+
+        .browser:hover svg {
+            transform: scale(1.02);
+        }
+
         .browser.unsupported {
             --filter: grayscale(100%);
             -webkit-filter: grayscale(1);
@@ -279,8 +292,10 @@
             opacity: 0.9;
         }
 
-        .browser > svg {
+        .browser > a > svg {
+            display: block;
             height: 50%;
+            margin: auto;
             width: 50%;
         }
     </style>
@@ -360,24 +375,32 @@
 
             <div class="browsers">
                 <div class="browser">
-                    <svg class="canary">
-              				  <use xlink:href="#canary" />
-              			<svg>
+                    <a href="https://www.google.com/chrome/browser/canary.html" title="Download Chrome Canary">
+                        <svg class="canary">
+                  				  <use xlink:href="#canary" />
+                  			<svg>
+                    </a>
                 </div>
                 <div class="browser">
-                    <svg class="firefox">
-              				  <use xlink:href="#firefox" />
-              			<svg>
+                    <a href="https://www.mozilla.org/en-US/firefox/new/" title="Download Firefox">
+                        <svg class="firefox">
+                  				  <use xlink:href="#firefox" />
+                  			<svg>
+                    </a>
                 </div>
                 <div class="browser">
-                    <svg class="safari">
-              				  <use xlink:href="#safari" />
-              			<svg>
+                    <a href="https://support.apple.com/downloads/safari" title="Download Safari">
+                        <svg class="safari">
+                  				  <use xlink:href="#safari" />
+                  			<svg>
+                    </a>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="edge">
-              				  <use xlink:href="#edge" />
-              			<svg>
+                    <a href="https://www.microsoft.com/en-us/windows/microsoft-edge" title="Download Edge">
+                        <svg class="edge">
+                  				  <use xlink:href="#edge" />
+                  			<svg>
+                    </a>
                 </div>
             </div>
         </section>
@@ -423,24 +446,32 @@
 
             <div class="browsers">
                 <div class="browser">
-                    <svg class="canary">
-              				  <use xlink:href="#canary" />
-              			<svg>
+                    <a href="https://www.google.com/chrome/browser/canary.html" title="Download Chrome Canary">
+                        <svg class="canary">
+                  				  <use xlink:href="#canary" />
+                  			<svg>
+                    </a>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="firefox">
-              				  <use xlink:href="#firefox" />
-              			<svg>
+                    <a href="https://www.mozilla.org/en-US/firefox/new/" title="Download Firefox">
+                        <svg class="firefox">
+                  				  <use xlink:href="#firefox" />
+                  			<svg>
+                    </a>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="safari">
-              				  <use xlink:href="#safari" />
-              			<svg>
+                    <a href="https://support.apple.com/downloads/safari" title="Download Safari">
+                        <svg class="safari">
+                  				  <use xlink:href="#safari" />
+                  			<svg>
+                    </a>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="edge">
-              				  <use xlink:href="#edge" />
-              			<svg>
+                    <a href="https://www.microsoft.com/en-us/windows/microsoft-edge" title="Download Edge">
+                        <svg class="edge">
+                  				  <use xlink:href="#edge" />
+                  			<svg>
+                    </a>
                 </div>
             </div>
         </section>
@@ -473,24 +504,32 @@
 
             <div class="browsers">
                 <div class="browser">
-                    <svg class="canary">
-              				  <use xlink:href="#canary" />
-              			<svg>
+                    <a href="https://www.google.com/chrome/browser/canary.html" title="Download Chrome Canary">
+                        <svg class="canary">
+                  				  <use xlink:href="#canary" />
+                  			<svg>
+                    </a>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="firefox">
-              				  <use xlink:href="#firefox" />
-              			<svg>
+                    <a href="https://www.mozilla.org/en-US/firefox/new/" title="Download Firefox">
+                        <svg class="firefox">
+                  				  <use xlink:href="#firefox" />
+                  			<svg>
+                    </a>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="safari">
-              				  <use xlink:href="#safari" />
-              			<svg>
+                    <a href="https://support.apple.com/downloads/safari" title="Download Safari">
+                        <svg class="safari">
+                  				  <use xlink:href="#safari" />
+                  			<svg>
+                    </a>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="edge">
-              				  <use xlink:href="#edge" />
-              			<svg>
+                    <a href="https://www.microsoft.com/en-us/windows/microsoft-edge" title="Download Edge">
+                        <svg class="edge">
+                  				  <use xlink:href="#edge" />
+                  			<svg>
+                    </a>
                 </div>
             </div>
         </section>
@@ -523,24 +562,32 @@
 
             <div class="browsers">
                 <div class="browser">
-                    <svg class="canary">
-              				  <use xlink:href="#canary" />
-              			<svg>
+                    <a href="https://www.google.com/chrome/browser/canary.html" title="Download Chrome Canary">
+                        <svg class="canary">
+                  				  <use xlink:href="#canary" />
+                  			<svg>
+                    </a>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="firefox">
-              				  <use xlink:href="#firefox" />
-              			<svg>
+                    <a href="https://www.mozilla.org/en-US/firefox/new/" title="Download Firefox">
+                        <svg class="firefox">
+                  				  <use xlink:href="#firefox" />
+                  			<svg>
+                    </a>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="safari">
-              				  <use xlink:href="#safari" />
-              			<svg>
+                    <a href="https://support.apple.com/downloads/safari" title="Download Safari">
+                        <svg class="safari">
+                  				  <use xlink:href="#safari" />
+                  			<svg>
+                    </a>
                 </div>
                 <div class="browser unsupported">
-                    <svg class="edge">
-              				  <use xlink:href="#edge" />
-              			<svg>
+                    <a href="https://www.microsoft.com/en-us/windows/microsoft-edge" title="Download Edge">
+                        <svg class="edge">
+                  				  <use xlink:href="#edge" />
+                  			<svg>
+                    </a>
                 </div>
             </div>
         </section>
