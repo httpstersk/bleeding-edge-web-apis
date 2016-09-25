@@ -196,11 +196,12 @@
         pre {
             background: #1C1823;
             margin: 0;
-            overflow: auto;
+            overflow-x: visible;
             -moz-tab-size: 2;
             -o-tab-size: 2;
             tab-size: 2;
             padding: 1em;
+            white-space: pre-wrap;
         }
 
         pre b {
@@ -277,13 +278,6 @@
         .browser > svg {
             height: 50%;
             width: 50%;
-        }
-
-        @media print {
-            pre {
-                overflow-x: visible;
-                white-space: pre-wrap;
-            }
         }
     </style>
 
