@@ -44,6 +44,7 @@
             line-height: 1.8;
             margin: 0;
             min-height: 100%;
+            padding: 20px;
             text-rendering: optimizeLegibility;
         }
 
@@ -53,16 +54,19 @@
         }
 
         main {
-            flex: 1 0 auto;
-            padding: 10px;
+            flex: 1;
         }
 
         section {
             margin: auto;
-            margin-bottom: 3em;
+            margin-bottom: 3rem;
             max-width: 1280px;
             overflow: hidden;
             width: 100%;
+        }
+
+        section:last-child {
+            margin-bottom: 0;
         }
 
         section.full-width {
@@ -221,7 +225,7 @@
         pre i {
             text-decoration: none;
             font-style: normal;
-            color: #E38B03;
+            color: #E0E6F9;
         }
 
         code {
@@ -316,7 +320,7 @@
                 <li><a href="#css-font-loading">CSS Font Loading API</a></li>
                 <li><a href="#custom-elements">Custom Elements API</a></li>
                 <li><a href="#web-bluetooth">Web Bluetooth API</a></li>
-                <li><a href="#web-usb">Web USB API</a></li>
+                <li><a href="#gamepad">Gamepad API</a></li>
             </ul>
         </nav>
     </section>
@@ -534,27 +538,25 @@
             </div>
         </section>
 
-        <section id="web-usb">
-            <h2>Web USB API</h2>
+        <section id="gamepad">
+            <h2>Gamepad API</h2>
 
-            <p id="web-usb-description">
-                The Web USB API is an interface for securely providing access to Universal Serial Bus devices from web pages.
+            <p id="gamepad-description">
+                The Gamepad API introduces new events on the Window object for reading gamepad and controller state.
             </p>
 
             <figure>
-                <figcaption id="web-usb-caption">
-                    WebUSB.js
+                <figcaption id="gamepad-caption">
+                    Gamepad.js
                     <button class="copy" hidden aria-hidden="true">Copy</button>
                     <span class="copied" hidden aria-hidden="true">✓</span>
                 </figcaption>
-                <pre id="syntax-web-usb" aria-labelledby="web-usb-caption" aria-describedby="web-usb-description">
+                <pre id="syntax-gamepad" aria-labelledby="gamepad-caption" aria-describedby="gamepad-description">
                     <code contenteditable="true" tabindex="0" spellcheck="false">
-            navigator.<b>usb</b>.<u>requestDevice</u>({ filters: [{ vendorId: 0x2341 }] })
-              .<i>then</i>(device => device.log(device.productName))
-              .<i>catch</i>(error => console.error(error));
-
-            navigator.<b>usb</b>.<u>getDevices</u>().<i>then</i>(devices => {
-              devices.<i>map</i>(device => console.log(device.manufacturerName));
+            window.<i>addEventListener</i>('<b>gamepadconnected</b>', (e) => {
+                <i>const</i> connectedGamepadIndex = e.gamepad.index;
+                <i>const</i> gamepads = navigator.<u>getGamepads</u>();
+                <i>const</i> gp = gamepads[connectedGamepadIndex];
             });
                     </code>
                 </pre>
@@ -568,7 +570,7 @@
                   			<svg>
                     </a>
                 </div>
-                <div class="browser unsupported">
+                <div class="browser">
                     <a href="https://www.mozilla.org/en-US/firefox/new/" title="Download Firefox">
                         <svg class="firefox">
                   				  <use xlink:href="#firefox" />
@@ -582,7 +584,7 @@
                   			<svg>
                     </a>
                 </div>
-                <div class="browser unsupported">
+                <div class="browser">
                     <a href="https://www.microsoft.com/en-us/windows/microsoft-edge" title="Download Edge">
                         <svg class="edge">
                   				  <use xlink:href="#edge" />
