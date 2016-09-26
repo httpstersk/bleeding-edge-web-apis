@@ -261,9 +261,14 @@
         }
 
         figure figcaption {
+            -ms-align-items: center;
             align-items: center;
             background: #1C1C1C;
             color: #A3A3A3;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
             display: flex;
             font-family: monaco, courier, monospace;
             font-size: 0.5rem;
@@ -273,17 +278,35 @@
         }
 
         .browsers {
+            -ms-align-items: center;
             align-items: center;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
             display: flex;
+            -webkit-flex-direction: row;
+            -moz-flex-direction: row;
+            -ms-flex-direction: row;
+            -o-flex-direction: row;
             flex-direction: row;
             justify-content: center;
         }
 
         .browser {
+            -ms-align-items: center;
             align-items: center;
             background: white;
             box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
             display: flex;
+            -webkit-flex-direction: row;
+            -moz-flex-direction: row;
+            -ms-flex-direction: row;
+            -o-flex-direction: row;
             flex-direction: row;
             height: 15vw;
             min-height: 100px;
