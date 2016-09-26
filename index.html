@@ -485,10 +485,10 @@
                 <pre id="syntax-web-bluetooth" aria-labelledby="web-bluetooth-caption" aria-describedby="web-bluetooth-description">
                     <code contenteditable="true" tabindex="0" spellcheck="false">
             navigator.<b>bluetooth</b>.<u>requestDevice</u>({ filters: [{ services: ['battery_service'] }] })
-              .<i>then</i>(device => device.gatt.connect())
-              .<i>then</i>(server => server.getPrimaryService('battery_service'))
-              .<i>then</i>(service => service.getCharacteristics())
-              .<i>then</i>(characteristic => characteristic.readValue())
+              .<i>then</i>(device => device.<b>gatt</b>.<u>connect</u>())
+              .<i>then</i>(server => server.<u>getPrimaryService</u>('battery_service'))
+              .<i>then</i>(service => service.<u>getCharacteristics</u>())
+              .<i>then</i>(characteristic => characteristic.<u>readValue</u>())
               .<i>then</i>(value => console.log(`Battery level is ${value}%`))
               .<i>catch</i>(error => console.error(error));
                     </code>
