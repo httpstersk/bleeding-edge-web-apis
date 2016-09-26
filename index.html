@@ -30,6 +30,7 @@
                 font-size: calc(0.8rem + 1.2 * ((100vw - 20rem) / 30));
             }
         }
+
         @media screen and (min-width: 50rem) {
             html {
                 font-size: 2rem;
@@ -45,7 +46,9 @@
         body {
             -moz-osx-font-smoothing: grayscale;
             -webkit-font-smoothing: antialiased;
-            background: #C60333;
+            background: #C60333 url('cursor.svg') no-repeat;
+            background-position: left;
+            background-blend-mode: color-dodge;
             color: white;
             display: flex;
             flex-direction: column;
