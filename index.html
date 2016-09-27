@@ -46,11 +46,7 @@
         body {
             -moz-osx-font-smoothing: grayscale;
             -webkit-font-smoothing: antialiased;
-            background-blend-mode: color-dodge;
-            background-color: #C60333;
-            background-image: url('cursor.svg'), url('cursor.svg'), url('cursor.svg');
-            background-position: top left 0, top left 20px, top left 40px;
-            background-repeat: no-repeat;
+            background: #C60333 url('cursor.svg') no-repeat;
             color: white;
             display: flex;
             flex-direction: column;
@@ -62,6 +58,14 @@
             min-height: 100%;
             padding: 20px;
             text-rendering: optimizeLegibility;
+        }
+
+        @supports (background-blend-mode: multiply) {
+            body {
+                background-blend-mode: lighten;
+                background-image: url('cursor.svg'), url('cursor.svg'), url('cursor.svg');
+                background-position: 0 top, 4% top, 8% top;
+            }
         }
 
         body,
@@ -82,27 +86,27 @@
             width: 100%;
         }
 
-        section.full-width {
-            max-width: none;
-        }
-
         header {
-            background: transparent;
             min-height: 20vh;
             margin: auto;
         }
 
+        header,
+        nav ul {
+            text-align: center;
+        }
+
         footer {
-            background: transparent;
             min-height: 20vh;
+            max-width: none;
         }
 
         nav ul {
             font-size: 1rem;
             font-weight: bold;
+            line-height: 2;
             list-style-type: none;
             padding: 0;
-            text-align: center;
             text-transform: uppercase;
             position: relative;
         }
@@ -217,11 +221,11 @@
             content: '';
             background: rgba(255, 255, 255, .3);
             height: 100%;
-            width: 100%;
-            position: absolute;
             top: 0;
             left: -150%;
+            position: absolute;
             transform: skew(-45deg);
+            width: 100%;
         }
 
         pre {
@@ -242,39 +246,53 @@
 
         pre u {
             color: #E38B03;
-            text-decoration: none;
         }
 
         pre i {
-            text-decoration: none;
             font-style: normal;
             color: #E0E6F9;
+        }
+
+        pre u,
+        pre i {
+            text-decoration: none;
         }
 
         code {
             color: #A3A3A3;
             cursor: text;
-            display: block;
             font-family: monaco, courier, monospace;
-            font-size: 17px;
-            margin: 0;
+            font-size: 14px;
         }
 
+        @media screen and (min-width: 50rem) {
+            code {
+                font-size: 17px;
+            }
+        }
+
+        code,
         figure {
             display: block;
             margin: 0;
         }
 
-        figure figcaption {
+        figure figcaption,
+        .browsers,
+        .browser {
             -ms-align-items: center;
             align-items: center;
-            background: #1C1C1C;
-            color: #A3A3A3;
             display: -webkit-flex;
             display: -moz-flex;
             display: -ms-flex;
             display: -o-flex;
             display: flex;
+            justify-content: center;
+        }
+
+        figure figcaption {
+            background: #1C1C1C;
+            color: #A3A3A3;
             font-family: monaco, courier, monospace;
             font-size: 0.5rem;
             justify-content: flex-end;
@@ -282,41 +300,12 @@
             position: relative;
         }
 
-        .browsers {
-            -ms-align-items: center;
-            align-items: center;
-            display: -webkit-flex;
-            display: -moz-flex;
-            display: -ms-flex;
-            display: -o-flex;
-            display: flex;
-            -webkit-flex-direction: row;
-            -moz-flex-direction: row;
-            -ms-flex-direction: row;
-            -o-flex-direction: row;
-            flex-direction: row;
-            justify-content: center;
-        }
-
         .browser {
-            -ms-align-items: center;
-            align-items: center;
             background: white;
             box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);
-            display: -webkit-flex;
-            display: -moz-flex;
-            display: -ms-flex;
-            display: -o-flex;
-            display: flex;
-            -webkit-flex-direction: row;
-            -moz-flex-direction: row;
-            -ms-flex-direction: row;
-            -o-flex-direction: row;
-            flex-direction: row;
             height: 15vw;
             min-height: 100px;
             max-height: 300px;
-            justify-content: center;
             position: relative;
             transition: all 0.4s;
             width: 25%;
@@ -633,9 +622,7 @@
     </main>
 
     <footer>
-        <section class="full-width">
 
-        </section>
     </footer>
 
     <script>
