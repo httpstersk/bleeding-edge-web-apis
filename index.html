@@ -46,9 +46,11 @@
         body {
             -moz-osx-font-smoothing: grayscale;
             -webkit-font-smoothing: antialiased;
-            background: #C60333 url('cursor.svg') no-repeat;
-            background-position: left;
             background-blend-mode: color-dodge;
+            background-color: #C60333;
+            background-image: url('cursor.svg'), url('cursor.svg'), url('cursor.svg');
+            background-position: top left 0, top left 20px, top left 40px;
+            background-repeat: no-repeat;
             color: white;
             display: flex;
             flex-direction: column;
