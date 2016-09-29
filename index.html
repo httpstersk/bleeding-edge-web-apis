@@ -48,10 +48,39 @@
                     </code>
                 </pre></figure><summary><p><strong>Browser Support</strong>: Chrome Canary (55+)</summary><div class=browsers><div class=browser><a href=https://www.google.com/chrome/browser/canary.html title="Download Chrome Canary"><svg class=canary><use xlink:href=#canary /><svg></a></div><div class="browser unsupported"><a href=https://www.mozilla.org/en-US/firefox/new/ title="Download Firefox"><svg class=firefox><use xlink:href=#firefox /><svg></a></div><div class="browser unsupported"><a href=https://support.apple.com/downloads/safari title="Download Safari"><svg class=safari><use xlink:href=#safari /><svg></a></div><div class="browser unsupported"><a href=https://www.microsoft.com/en-us/windows/microsoft-edge title="Download Edge"><svg class=edge><use xlink:href=#edge /><svg></a></div></div></section><section id=gamepad><h2>Gamepad API</h2><p id=gamepad-description>The Gamepad API introduces new events on the Window object for reading gamepad and controller state.<figure><figcaption id=gamepad-caption>Gamepad.js <button aria-hidden=true class=copy hidden>Copy</button> <span aria-hidden=true class=copied hidden>✓</span></figcaption><pre aria-describedby=gamepad-description aria-labelledby=gamepad-caption id=syntax-gamepad>
                     <code contenteditable=true spellcheck=false tabindex=0>
+            <i>let</i> gamepadIndex;
+            <i>let</i> loopID;
+
             window.<i>addEventListener</i>('<b>gamepadconnected</b>', (e) => {
-                <i>const</i> connectedGamepadIndex = e.gamepad.index;
-                <i>const</i> gamepads = navigator.<u>getGamepads</u>();
-                <i>const</i> gp = gamepads[connectedGamepadIndex];
+              gamepadIndex = e.gamepad.index;
+              loopID = window.<i>requestAnimationFrame</i>(gameLoop);
             });
+
+            window.<i>addEventListener</i>('<b>gamepaddisconnected</b>', (e) => {
+              gamepadIndex = null;
+              window.<i>cancelAnimationFrame</i>(loopID);
+            });
+
+            <i>const</i> BUTTON_LEFT_INDEX = 14;
+            <i>const</i> BUTTON_RIGHT_INDEX = 15;
+
+            function gameLoop() {
+              <i>let</i> gamepads = navigator.<u>getGamepads</u>();
+              <i>let</i> gp = gamepads[gamepadIndex];
+              <i>let</i> button = gp.<b>buttons</b>[0].<b>pressed</b>;
+
+              <i>switch</i> (button) {
+                <i>case</i> BUTTON_LEFT_INDEX:
+                  turnLeft();
+                  <i>break</i>;
+                <i>case</i> BUTTON_RIGHT_INDEX:
+                  turnRight();
+                  <i>break</i>;
+                <i>default</i>:
+                  fly();
+              }
+
+              window.<i>requestAnimationFrame</i>(gameLoop);
+            }
                     </code>
                 </pre></figure><summary><p><strong>Browser Support</strong>: Chrome (21+), Firefox (29+), Edge (12+)</summary><div class=browsers><div class=browser><a href=https://www.google.com/chrome/browser/canary.html title="Download Chrome Canary"><svg class=canary><use xlink:href=#canary /><svg></a></div><div class=browser><a href=https://www.mozilla.org/en-US/firefox/new/ title="Download Firefox"><svg class=firefox><use xlink:href=#firefox /><svg></a></div><div class="browser unsupported"><a href=https://support.apple.com/downloads/safari title="Download Safari"><svg class=safari><use xlink:href=#safari /><svg></a></div><div class=browser><a href=https://www.microsoft.com/en-us/windows/microsoft-edge title="Download Edge"><svg class=edge><use xlink:href=#edge /><svg></a></div></div></section></main><footer></footer><script>!function(){"use strict";function e(e,n){var o=e.parentNode.parentNode,c=o.querySelector("code"),r=document.createRange();r.selectNode(c),t(),window.getSelection().addRange(r);var i;try{i=document.execCommand("copy")}catch(e){i=!1}i&&"function"==typeof n&&n(),t()}function t(){return window.getSelection().removeAllRanges()}function n(e){e&&e.hasAttribute("hidden")&&(e.removeAttribute("hidden"),e.setAttribute("aria-hidden","false"))}function o(e){return n(e.nextElementSibling)}function c(t){t.addEventListener("click",function(){e(t,o(t))})}if(document.queryCommandSupported("copy")){var r=document.querySelectorAll("button");r&&Array.from(r).map(function(e){n(e),c(e)})}}()</script><sara-soueidan is=awesome>

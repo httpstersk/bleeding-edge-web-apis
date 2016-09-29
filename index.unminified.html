@@ -605,11 +605,40 @@
                 </figcaption>
                 <pre id="syntax-gamepad" aria-labelledby="gamepad-caption" aria-describedby="gamepad-description">
                     <code contenteditable="true" tabindex="0" spellcheck="false">
+            <i>let</i> gamepadIndex;
+            <i>let</i> loopID;
+
             window.<i>addEventListener</i>('<b>gamepadconnected</b>', (e) => {
-                <i>const</i> connectedGamepadIndex = e.gamepad.index;
-                <i>const</i> gamepads = navigator.<u>getGamepads</u>();
-                <i>const</i> gp = gamepads[connectedGamepadIndex];
+              gamepadIndex = e.gamepad.index;
+              loopID = window.<i>requestAnimationFrame</i>(gameLoop);
             });
+
+            window.<i>addEventListener</i>('<b>gamepaddisconnected</b>', (e) => {
+              gamepadIndex = null;
+              window.<i>cancelAnimationFrame</i>(loopID);
+            });
+
+            <i>const</i> BUTTON_LEFT_INDEX = 14;
+            <i>const</i> BUTTON_RIGHT_INDEX = 15;
+
+            function gameLoop() {
+              <i>let</i> gamepads = navigator.<u>getGamepads</u>();
+              <i>let</i> gp = gamepads[gamepadIndex];
+              <i>let</i> button = gp.<b>buttons</b>[0].<b>pressed</b>;
+
+              <i>switch</i> (button) {
+                <i>case</i> BUTTON_LEFT_INDEX:
+                  turnLeft();
+                  <i>break</i>;
+                <i>case</i> BUTTON_RIGHT_INDEX:
+                  turnRight();
+                  <i>break</i>;
+                <i>default</i>:
+                  fly();
+              }
+
+              window.<i>requestAnimationFrame</i>(gameLoop);
+            }
                     </code>
                 </pre>
             </figure>
