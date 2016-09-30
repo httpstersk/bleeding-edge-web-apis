@@ -1,8 +1,8 @@
 var CACHE_NAME = 'SW3';
 var URLS = [
-    '/',
-    '/index.html',
-    '/cursor.svg'
+    './',
+    './index.html',
+    './cursor.svg'
 ];
 
 self.addEventListener('install', function(event) {
