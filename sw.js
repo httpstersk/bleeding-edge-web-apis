@@ -1,17 +1,15 @@
-const CACHE_NAME = 'SW2';
-const FILES_TO_CACHE = [
-    'index.html',
-    'cursor.svg'
+var CACHE_NAME = 'SW3';
+var URLS = [
+    '/',
+    '/index.html',
+    '/cursor.svg'
 ];
 
 self.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(function(cache) {
-                return cache.addAll(FILES_TO_CACHE);
-            })
-            .catch(function(err) {
-                console.error('SW Failed to install', err);
+                return cache.addAll(URLS);
             })
     );
 });
@@ -28,5 +26,14 @@ self.addEventListener('activate', function(event) {
                 })
             );
         })
+    );
+});
+
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+        caches.match(event.request)
+            .then(function(request) {
+                return request || fetch(event.request);
+            })
     );
 });
