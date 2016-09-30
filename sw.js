@@ -8,8 +8,7 @@ self.addEventListener('install', event => {
     event.waitUntil(
         caches
             .open(CACHE_NAME)
-            .then(cache => cache.addAll(filesToCache))
-            .catch(err => console.error(err));
+            .then(cache => cache.addAll(filesToCache));
     );
 });
 
@@ -21,7 +20,6 @@ self.addEventListener('activate', event => {
                 cacheNames
                     .filter(cacheName => cacheName !== CACHE_NAME)
                     .map(cacheName => cache.delete(cacheName));
-            ))
-            .catch(err => console.error(err));
+            ));
     );
 });
