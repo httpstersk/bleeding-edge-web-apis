@@ -744,6 +744,10 @@
                     });
                 }
             }
+
+            if ('serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll)) {
+                navigator.serviceWorker.register('/sw.js');
+            }
         })();
     </script>
 
