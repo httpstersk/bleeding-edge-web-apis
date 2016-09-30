@@ -1,4 +1,4 @@
-const CACHE_NAME = 'SW1';
+const CACHE_NAME = 'SW2';
 const FILES_TO_CACHE = [
     'index.html',
     'cursor.svg'
@@ -10,8 +10,8 @@ self.addEventListener('install', function(event) {
             .then(function(cache) {
                 return cache.addAll(FILES_TO_CACHE);
             })
-            .then(function() {
-                return self.skipWaiting();
+            .catch(function(err) {
+                console.error('SW Failed to install', err);
             })
     );
 });
@@ -23,6 +23,7 @@ self.addEventListener('activate', function(event) {
                 cacheNames.filter(function(cacheName) {
                     return cacheName !== CACHE_NAME;
                 }).map(function(cacheName) {
+                    console.log('Deleting ' + cacheName);
                     return caches.delete(cacheName);
                 })
             );
